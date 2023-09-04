@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div id="forecast">
+      <div id="condition"></div>
+      <div id="location"></div>
+      <div id="date"></div>
+      <div id="time">
+      </div>
+      <div id="temp"></div>
+      <div id="toggle"></div>
+      <div><img id="icon" alt="weather-icon"></div>
+      <form action="">
+        <label for="location-input">
+            <input type="text" placeholder="Search Location..." name="location" id="location-input">
+        </label>
+        <div id="search-icon"><button type="button">Search</button></div>
+      </form>
+
+    </div>
 
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
