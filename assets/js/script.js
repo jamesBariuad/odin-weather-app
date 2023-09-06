@@ -6,7 +6,7 @@ let tempSymbol = "°C";
 const fetchData = async (searchLocation) => {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchLocation}&days=1&aqi=no`
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchLocation}&days=1&aqi=no`
     );
     return await response.json();
   } catch (error) {
