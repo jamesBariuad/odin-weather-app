@@ -4,33 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body>
-    <div id="forecast">
-      <div id="condition"></div>
-      <div id="location"></div>
-      <div id="date"></div>
-      <div id="time"></div>
-      <div id="temp"></div>
-      <div id="toggle"></div>
-      <div><img id="icon" alt="weather-icon" /></div>
-    </div>
-    <form action="">
-      <label for="location-input">
-        <input
-          type="text"
-          placeholder="Search Location..."
-          name="location"
-          id="location-input"
+    <div>
+      <div id="main-details">
+        <div id="forecast">
+          <div id="forecast-text">
+            <div id="condition"></div>
+            <div id="location"></div>
+            <div id="date"></div>
+            <div id="time"></div>
+            <div id="temp"></div>
+            
+          </div>
+          <div><img id="icon" alt="weather-icon" />
+            <button type="button" id="toggle">°C/℉</button></div>
+
+          <form action="">
+            <label for="location-input">
+              <input
+                type="text"
+                placeholder="Search Location..."
+                name="location"
+                id="location-input"
+              />
+            </label>
+            <div id="search-icon"><button type="submit">	
+              🔍︎ </button></div>
+          </form>
+         
+          
+        </div>
+        <div class="loading hidden" >
+          <img
+          src="https://media.tenor.com/wpSo-8CrXqUAAAAi/loading-loading-forever.gif"
+          alt="loading"
         />
-      </label>
-      <div id="search-icon"><button type="submit">Search</button></div>
-    </form>
-    <img class="loading hidden"
-      src="https://media.tenor.com/wpSo-8CrXqUAAAAi/loading-loading-forever.gif"
-      alt="loading"
-    />
+        </div>
+      </div>
+      <div class="more-details">
+        <div>
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><title>water-percent</title><path d="M12,3.25C12,3.25 6,10 6,14C6,17.32 8.69,20 12,20A6,6 0 0,0 18,14C18,10 12,3.25 12,3.25M14.47,9.97L15.53,11.03L9.53,17.03L8.47,15.97M9.75,10A1.25,1.25 0 0,1 11,11.25A1.25,1.25 0 0,1 9.75,12.5A1.25,1.25 0 0,1 8.5,11.25A1.25,1.25 0 0,1 9.75,10M14.25,14.5A1.25,1.25 0 0,1 15.5,15.75A1.25,1.25 0 0,1 14.25,17A1.25,1.25 0 0,1 13,15.75A1.25,1.25 0 0,1 14.25,14.5Z" /></svg>
+          </div>
+          <div>Humidity:</div>
+          <div id="humidity"></div>
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="white"  viewBox="0 0 24 24"><title>weather-pouring</title><path d="M9,12C9.53,12.14 9.85,12.69 9.71,13.22L8.41,18.05C8.27,18.59 7.72,18.9 7.19,18.76C6.65,18.62 6.34,18.07 6.5,17.54L7.78,12.71C7.92,12.17 8.47,11.86 9,12M13,12C13.53,12.14 13.85,12.69 13.71,13.22L11.64,20.95C11.5,21.5 10.95,21.8 10.41,21.66C9.88,21.5 9.56,20.97 9.7,20.43L11.78,12.71C11.92,12.17 12.47,11.86 13,12M17,12C17.53,12.14 17.85,12.69 17.71,13.22L16.41,18.05C16.27,18.59 15.72,18.9 15.19,18.76C14.65,18.62 14.34,18.07 14.5,17.54L15.78,12.71C15.92,12.17 16.47,11.86 17,12M17,10V9A5,5 0 0,0 12,4C9.5,4 7.45,5.82 7.06,8.19C6.73,8.07 6.37,8 6,8A3,3 0 0,0 3,11C3,12.11 3.6,13.08 4.5,13.6V13.59C5,13.87 5.14,14.5 4.87,14.96C4.59,15.43 4,15.6 3.5,15.32V15.33C2,14.47 1,12.85 1,11A5,5 0 0,1 6,6C7,3.65 9.3,2 12,2C15.43,2 18.24,4.66 18.5,8.03L19,8A4,4 0 0,1 23,12C23,13.5 22.2,14.77 21,15.46V15.46C20.5,15.73 19.91,15.57 19.63,15.09C19.36,14.61 19.5,14 20,13.72V13.73C20.6,13.39 21,12.74 21,12A2,2 0 0,0 19,10H17Z" /></svg>
+          <div>Chance of Rain</div>
+          <div id="rain-chance"></div>
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><title>weather-windy</title><path d="M4,10A1,1 0 0,1 3,9A1,1 0 0,1 4,8H12A2,2 0 0,0 14,6A2,2 0 0,0 12,4C11.45,4 10.95,4.22 10.59,4.59C10.2,5 9.56,5 9.17,4.59C8.78,4.2 8.78,3.56 9.17,3.17C9.9,2.45 10.9,2 12,2A4,4 0 0,1 16,6A4,4 0 0,1 12,10H4M19,12A1,1 0 0,0 20,11A1,1 0 0,0 19,10C18.72,10 18.47,10.11 18.29,10.29C17.9,10.68 17.27,10.68 16.88,10.29C16.5,9.9 16.5,9.27 16.88,8.88C17.42,8.34 18.17,8 19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14H5A1,1 0 0,1 4,13A1,1 0 0,1 5,12H19M18,18H4A1,1 0 0,1 3,17A1,1 0 0,1 4,16H18A3,3 0 0,1 21,19A3,3 0 0,1 18,22C17.17,22 16.42,21.66 15.88,21.12C15.5,20.73 15.5,20.1 15.88,19.71C16.27,19.32 16.9,19.32 17.29,19.71C17.47,19.89 17.72,20 18,20A1,1 0 0,0 19,19A1,1 0 0,0 18,18Z" /></svg>
+          <div>Wind Speed</div>
+          <div id="wind-speed"></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      Background image taken from <a href="" target="_blank">Unsplash.com</a>
+    </footer>
 
     <script src="./assets/js/script.js"></script>
   </body>
