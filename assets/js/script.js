@@ -3,7 +3,7 @@ const apiKey = "1bebb0f7f9034991b1622653230309";
 const toggle = document.querySelector("#toggle");
 let tempSymbol = "°C";
 
-const fetchData = async (searchLocation = "cabarroguis") => {
+const fetchData = async (searchLocation) => {
   try {
     const response = await fetch(
       `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchLocation}&days=1&aqi=no`
@@ -100,7 +100,7 @@ toggle.addEventListener("click", handleToggleClick);
 
 (async () => {
   try {
-    const initialData = await fetchData();
+    const initialData = await fetchData('cabarroguis');
     const data = extractData(initialData);
     displayData(data);
   } catch (error) {
