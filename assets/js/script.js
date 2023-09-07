@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-const apiKey = "1bebb0f7f9034991b1622653230309";
+const apiKey = "9183d62487984e0198b04718230709";
 const toggle = document.querySelector("#toggle");
 let tempSymbol = "°C";
 
@@ -112,7 +112,7 @@ const displayImage = () => {
   const weatherConditionQuery =
     document.querySelector("#condition").textContent;
   fetch(
-    `https://api.unsplash.com/search/photos?client_id=KiZqmkfKihIE9mgzFSXGRZA9ye-lTFOGsOmlIsQGfEM&query=${weatherConditionQuery}&orientation=landscape`,
+    `https://api.unsplash.com/search/photos?client_id=2_Y1GckZJRTri6HkxLPVB7IsGsNdaaC53_KOM_0YEp4&query=${weatherConditionQuery}&orientation=landscape`,
     { method: "GET", mode: "cors" }
   )
     .then((response) => response.json())
@@ -122,9 +122,6 @@ const displayImage = () => {
       setFooterLink(url)
     }
     );
-    // setImageAsBackground('https://images.unsplash.com/photo-1597621864521-93dfdb10c6b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1930&q=80')
-    // setFooterLink('https://images.unsplash.com/photo-1597621864521-93dfdb10c6b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1930&q=80')
-  // (
 };
 
 const setImageAsBackground = (imageUrl) => {
